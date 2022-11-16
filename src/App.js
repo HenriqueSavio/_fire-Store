@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom'
 
 import CRUDRoutes from './components/routes/CRUDRoutes';
 
+import './App.css';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+import { NavDropdown } from 'react-bootstrap';
+
 function App() {
   return (
     <div className='container'>
@@ -13,19 +19,28 @@ function App() {
             <Link to='/' className='nav-link'>Home</Link>
           </li>
 
-          <li className='nav-item dropdown'>
-            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Estudante
-            </a>
-            <ul className="dropdown-menu dropdown-menu-light">
-              <li>
-                <Link className="dropdown-item" to='/createStudent'>Criar Estudante</Link>
-              </li>
-              <li>
-                <Link className="dropdown-item" to='/listStudent'>Listar Estudante</Link>
-              </li>
-            </ul>
+	  <li className="navitem">
+              <Link to="about" className="nav-link">About</Link>
           </li>
+
+          <NavDropdown title="Student" id="basic-nav-dropdown">
+              <NavDropdown.Item >
+              <Link to="createStudent" className="dropdown-item">Create Student</Link>
+                </NavDropdown.Item>
+              <NavDropdown.Item >
+              <Link to="listStudent" className="dropdown-item">List Student</Link>
+                </NavDropdown.Item>
+          </NavDropdown>
+
+            
+            <NavDropdown title="Professor" id="basic-nav-dropdown">
+              <NavDropdown.Item >
+              <Link to="createProfessor" className="dropdown-item">Create Professor</Link>
+                </NavDropdown.Item>
+              <NavDropdown.Item >
+              <Link to="listProfessor" className="dropdown-item">List Professor</Link>
+                </NavDropdown.Item>
+            </NavDropdown>
 
         </ul>
       </nav>
